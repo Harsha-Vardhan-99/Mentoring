@@ -11,50 +11,49 @@
     <title>AppointmentScheduler</title>
 </head>
 <body>
-    <div class="container">
     <h2>AppointmentScheduler</h2>
-    <form class="appointmentform">
+    <form class="appointmentform" id="myform">
         <div class="mb-3">
             <label class="form-label">Name</label>
             <input type="text"class="form-control" id="name" required>
         </div>
         <div class="mb-3">
             <label class="form-label">Phone</label>
-            <input type="tel"class="form-control" id="phone" >
+            <input type="tel"class="form-control" id="phone" required minlength="10">
         </div>
         <label class="form-label" >Gender</label>
         <div class="form-check">
-            <input type="radio"class="form-check-input" name="gender" id="male" >
+            <input type="radio"class="form-check-input" name="gender" id="male" value="male" >
             <label class="form-check-label" for="male" >Male</label>
         </div>
         <div class="form-check">
-            <input type="radio"class="form-check-input" name="gender" id="female">
+            <input type="radio"class="form-check-input" name="gender" id="female" value="female">
             <label class="form-check-label" for="female">Female</label>
         </div>
         <div class="form-check">
-            <input type="radio"class="form-check-input" name="gender" id="Other" checked>
+            <input type="radio"class="form-check-input" name="gender" id="Other" checked value="other">
             <label class="form-check-label" for="Other">Other</label>
         </div>
         <div class="mb-3">
             <label class="form-label" for="problemDescription">Problem Description</label>
-            <textarea class="form-control" placeholder="Description" id="problemDescription" rows="5"></textarea>
+            <textarea class="form-control" placeholder="Description" id="problemDescription" rows="5" required></textarea>
         </div>
         <div class="mb-3">
             <label class="form-label" >Date and Time</label>
-            <input type="datetime-local" id="dateandtime" class="form-control">
+            <input type="datetime-local" id="dateandtime" class="form-control" required>
         </div>
         <div class="mb-3">
-            <button  class="btn btn-primary" onclick="onSubmit()"> Submit </button>
+            <button id="submit" type="submit" name="submit"  class="btn btn-primary" > Submit </button>
         </div>
-
     </form>
-    <h3>Appointment Summary</h3>
-    <div class="summary">
-        <span id="sname"></span>
-        <span id="sphone"></span>
-        <span id="sprobdesc"></span>
-        <span id="sdateandtime"></span>
+    <h4 id="summarytitle">Appointment Summary</h4>
+    <div class="summary" id ="summaryinfo">
+        Name: <span id="sname"></span><br>
+        Phone: <span id="sphone"></span><br>
+        Gender: <span id="sgender"></span><br>
+        Problem: <span id="sprobdesc"></span><br>
+        DateandTime: <span id="sdateandtime"></span><br>
+        <button class="btn btn-primary">Reschedule</button>
     </div>
-</div>
 </body>
 </html>
