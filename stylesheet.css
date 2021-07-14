@@ -1,5 +1,5 @@
 form{
-   width:50%;
+   width:70%;
     background-color:lightsteelblue;
     border-radius: 10px;
     border: 2px solid gray;
@@ -9,6 +9,8 @@ form{
     margin-right: auto;
     box-shadow:3px 3px 3px gray;
 }
+
+
 h2,h4{
     text-align: center;
     padding-top: 20px;
@@ -28,4 +30,5 @@ h4{
     margin-right: auto;
     box-shadow:3px 3px 3px gray;
     display: none;
+    margin-bottom: 50px;
 }
