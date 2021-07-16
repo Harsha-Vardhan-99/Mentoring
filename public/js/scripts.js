@@ -8,10 +8,19 @@ var gender;
 
 window.onload=function(){
 
+  
+
   let form = document.getElementById('myform');
 
   form.addEventListener("submit",(event)=>{
     event.preventDefault();
+
+
+    var text = document.createTextNode("testing");
+    var para = document.createElement('p');
+    para.appendChild(text);
+    document.getElementById("parent").appendChild(para);
+
     name = event.target.name.value;
     phone = event.target.phone.value;
     gender = event.target.gender.value;
@@ -21,6 +30,16 @@ window.onload=function(){
     document.getElementById("summarytitle").style.display = "block";
     document.getElementById("summaryinfo").style.display = "block";
     window.scrollTo(0,document.body.scrollHeight);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:3000/admin/add-appointment", true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(JSON.stringify({
+      name:name,
+      phone:phone,
+      gender:gender,
+      probdesc:probdesc,
+      dateandtime:dateandtime
+  }));
 });
 
 function Display(){
