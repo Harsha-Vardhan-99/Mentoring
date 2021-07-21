@@ -14,25 +14,23 @@ window.onload=function(){
 
   form.addEventListener("submit",(event)=>{
     event.preventDefault();
-
-
-    var text = document.createTextNode("testing");
-    var para = document.createElement('p');
-    para.appendChild(text);
-    document.getElementById("parent").appendChild(para);
+    // var text = document.createTextNode("testing");
+    // var para = document.createElement('p');
+    // para.appendChild(text);
+    // document.getElementById("parent").appendChild(para);
 
     name = event.target.name.value;
     phone = event.target.phone.value;
     gender = event.target.gender.value;
     probdesc = event.target.problemDescription.value;
     dateandtime = event.target.dateandtime.value;
-    Display();
+    display();
     document.getElementById("summarytitle").style.display = "block";
     document.getElementById("summaryinfo").style.display = "block";
     window.scrollTo(0,document.body.scrollHeight);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3000/admin/add-appointment", true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
       name:name,
       phone:phone,
@@ -40,9 +38,11 @@ window.onload=function(){
       probdesc:probdesc,
       dateandtime:dateandtime
   }));
+  window.location.assign('/appointments');
+  
 });
 
-function Display(){
+function display(){
   document.getElementById("sname").innerHTML = name;
     document.getElementById("sphone").innerHTML = phone;
     document.getElementById("sgender").innerHTML = gender;
