@@ -8,7 +8,10 @@ var gender;
 
 window.onload=function(){
 
-  
+  let viewall = document.getElementById('viewall');
+  viewall.addEventListener("click",()=>{
+    window.location.assign('/appointments');
+  });
 
   let form = document.getElementById('myform');
 
